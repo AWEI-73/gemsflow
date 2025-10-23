@@ -1,0 +1,21 @@
+stories:
+  - id: "1.1"
+    title: "學員代號生成服務"
+    priority: "P0"
+    description: "建立學員代號生成和驗證服務，支援年度-序號-姓名碼-序號格式"
+    acceptanceCriteria:
+      - id: "AC-1.1-1"
+        description: "應能生成格式為 YYY-XX-XXXXXX-XX 的學員代號"
+        testCase: "generateStudentCode(113, 1, 'ABCDEF', 5) → '113-1-ABCDEF-05'"
+      - id: "AC-1.1-2"
+        description: "應驗證學員代號格式正確性"
+        testCase: "validateStudentCode('113-1-ABCDEF-05') → {valid: true}"
+      - id: "AC-1.1-3"
+        description: "應拒絕無效格式的輸入"
+        testCase: "年度 < 100 或 > 999 應拋出錯誤"
+    technicalRequirements:
+      - "使用 TypeScript 實作"
+      - "無外部依賴"
+      - "支援邊界值測試"
+    riskLevel: "P0"
+    estimatedHours: 4
